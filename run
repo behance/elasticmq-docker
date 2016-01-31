@@ -1,8 +1,11 @@
 #!/bin/bash
 
 CONTAINER_ID=$(hostname)
-BRIDGE=$(cat /etc/hosts|grep $CONTAINER_ID|cut -s -f1)
-if [[ ! -z $1 ]]; then BRIDGE=$1; fi
+
+if [ -z "$NODE_HOST" ]; then 
+	NODE_HOST=$(cat /etc/hosts|grep $CONTAINER_ID|cut -s -f1)
+	if [[ ! -z $1 ]]; then NODE_HOST=$1; fi
+fi
 
 CONFIG=$(cat <<EOF
 // https://github.com/adamw/elasticmq#installation-stand-alone
@@ -12,7 +15,7 @@ include classpath("application.conf")
 node-address {
     protocol = http
     // this is specifically for docker
-    host = $BRIDGE
+    host = $NODE_HOST
     port = 9324
     context-path = ""
 }

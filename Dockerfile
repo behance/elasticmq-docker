@@ -1,5 +1,5 @@
 FROM       ubuntu:14.04
-MAINTAINER Behance RE
+MAINTAINER Colin Vipurs (zodiaczx6@gmail.com)
 
 RUN sudo apt-get update && apt-get install default-jre -y
 
