@@ -7,6 +7,10 @@ if [ -z "$NODE_HOST" ]; then
 	if [[ ! -z $1 ]]; then NODE_HOST=$1; fi
 fi
 
+if [ -z "$NODE_PORT" ]; then
+	NODE_PORT="9324"
+fi
+
 CONFIG=$(cat <<EOF
 // https://github.com/adamw/elasticmq#installation-stand-alone
 include classpath("application.conf")
@@ -16,7 +20,7 @@ node-address {
     protocol = http
     // this is specifically for docker
     host = $NODE_HOST
-    port = 9324
+    port = $NODE_PORT
     context-path = ""
 }
 
@@ -25,7 +29,7 @@ rest-sqs {
     bind-port = 9324
     bind-hostname = "0.0.0.0"
     // Possible values: relaxed, strict
-    sqs-limits = relaxed
+    sqs-limits = strict
 }
 EOF
 )
