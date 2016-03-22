@@ -32,4 +32,4 @@ echo "Wrote config to /elasticmq/elasticmq.conf:"
 cat  /elasticmq/elasticmq.conf
 echo "============================================"
 
-java -jar -Dconfig.file=/elasticmq/elasticmq.conf /elasticmq/elasticmq-0.0.8.jar
+java -jar -Dconfig.file=/elasticmq/elasticmq.conf /elasticmq/elasticmq.jar
