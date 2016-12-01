@@ -11,3 +11,10 @@ docker run -e NODE_HOST=`docker-machine ip default` -e NODE_PORT=8000 -p 8000:93
 ```
 
 [Docker Hub](https://hub.docker.com/r/tddmonkey/elasticmq/)
+
+# Change Log
+
+**2016-12-01**
+
+* Upgraded to latest ElasticMq (0.11.1)
+* Ability to use `custom.conf` override
