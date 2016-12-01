@@ -14,6 +14,7 @@ fi
 CONFIG=$(cat <<EOF
 // https://github.com/adamw/elasticmq#installation-stand-alone
 include classpath("application.conf")
+include "custom.conf"
 
 // What is the outside visible address of this ElasticMQ node (used by rest-sqs)
 node-address {
@@ -39,4 +40,4 @@ echo "Wrote config to /elasticmq/elasticmq.conf:"
 cat  /elasticmq/elasticmq.conf
 echo "============================================"
 
-java -jar -Dconfig.file=/elasticmq/elasticmq.conf /elasticmq/elasticmq-0.0.8.jar
+java -jar -Dconfig.file=/elasticmq/elasticmq.conf /elasticmq/elasticmq.jar
