@@ -11,6 +11,10 @@ if [ -z "$NODE_PORT" ]; then
 	NODE_PORT="9324"
 fi
 
+if [ -z "$BIND_PORT" ]; then
+	BIND_PORT="9324"
+fi
+
 CONFIG=$(cat <<EOF
 // https://github.com/adamw/elasticmq#installation-stand-alone
 include classpath("application.conf")
@@ -27,7 +31,7 @@ node-address {
 
 rest-sqs {
     enabled = true
-    bind-port = 9324
+    bind-port = $BIND_PORT
     bind-hostname = "0.0.0.0"
     // Possible values: relaxed, strict
     sqs-limits = strict
