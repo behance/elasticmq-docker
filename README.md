@@ -14,6 +14,10 @@ docker run -e NODE_HOST=`docker-machine ip default` -e NODE_PORT=8000 -p 8000:93
 
 # Change Log
 
+**2018-01-31**
+* Updated to latest ElasticMq (0.13.8)
+* Added `BIND_PORT` environment var to run script, overriding REST server port
+
 **2016-12-01**
 
 * Upgraded to latest ElasticMq (0.11.1)
